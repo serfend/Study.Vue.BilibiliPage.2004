@@ -36,95 +36,80 @@
     
               "
         >
-          <li
-            class="rank-item"
-            v-for="(item, index) in rankData"
-            v-if="index < zoneRank.rankList"
-            :key="`zonr_rank_list_${index}`"
-            :class="[
-    
+          <div v-for="(item, index) in rankData" :key="`zonr_rank_list_${index}`">
+            <li
+              v-if="index < zoneRank.rankList"
+              class="rank-item"
+              :class="[
                   { highlight: index < 3 },
-    
-                  {
-    
-                    'show-detail first':
-    
+                  { 'show-detail first':
                       index === 0 && zoneRank.rankPic == true && tag === 0
-    
                   }
-    
                 ]"
-          >
-            <i class="ri-num">{{ index + 1 }}</i>
-
-            <a
-              :href="'/video/av' + item.aid"
-              target="_blank"
-              :title="item.title"
-              class="ri-info-wrap clearfix"
             >
-              <div class="lazy-img ri-preview" v-if="rankPic">
-                <img :alt="item.title" v-lazy="item.pic" />
-              </div>
+              <i class="ri-num">{{ index + 1 }}</i>
+              <a
+                :href="'/video/av' + item.aid"
+                target="_blank"
+                :title="item.title"
+                class="ri-info-wrap clearfix"
+              >
+                <div class="lazy-img ri-preview" v-if="rankPic">
+                  <img :alt="item.title" v-lazy="item.pic" />
+                </div>
 
-              <div class="ri-detail">
-                <p class="ri-title">{{ item.title }}</p>
+                <div class="ri-detail">
+                  <p class="ri-title">{{ item.title }}</p>
 
-                <p class="ri-point" v-if="rankPic == true && tag == 0">综合评分：{{ count2(item.pts) }}</p>
+                  <p class="ri-point" v-if="rankPic == true && tag == 0">综合评分：{{ count2(item.pts) }}</p>
 
-                <span class="ri-total" v-else>更新至第{{ item.newest_ep_index }}话</span>
-              </div>
+                  <span class="ri-total" v-else>更新至第{{ item.newest_ep_index }}话</span>
+                </div>
 
-              <div class="watch-later-trigger w-later" v-if="rankPic && index === 0"></div>
-            </a>
-          </li>
+                <div class="watch-later-trigger w-later" v-if="rankPic && index === 0"></div>
+              </a>
+            </li>
+          </div>
         </ul>
 
         <ul class="rank-list origin-list" v-if="rankPic == true && tag == 0">
-          <li
-            class="rank-item"
+          <div
             v-for="(item, index) in zoneRank.rankOriginalData"
-            v-if="index < zoneRank.rankList"
             :key="`rank_original_data_${index}`"
-            :class="[
-    
-                  { highlight: index < 3 },
-    
-                  { 'show-detail first': index === 0 && zoneRank.rankPic == true }
-    
-                ]"
           >
-            <i class="ri-num">{{ index + 1 }}</i>
-
-            <a
-              :href="'/video/av' + item.aid"
-              target="_blank"
-              :title="item.title"
-              class="ri-info-wrap clearfix"
+            <li
+              class="rank-item"
+              v-if="index < zoneRank.rankList"
+              :class="[
+                  { highlight: index < 3 },
+                  { 'show-detail first': index === 0 && zoneRank.rankPic == true }
+                ]"
             >
-              <div class="lazy-img ri-preview" v-if="rankPic">
-                <img :alt="item.title" v-lazy="item.pic" />
-              </div>
-
-              <div class="ri-detail">
-                <p class="ri-title">{{ item.title }}</p>
-
-                <p class="ri-point" v-if="rankPic">综合评分：{{ count2(item.pts) }}</p>
-
-                <span class="ri-total" v-else>更新至第{{ item.newest_ep_index }}话</span>
-              </div>
-
-              <div class="watch-later-trigger w-later" v-if="rankPic && index === 0"></div>
-            </a>
-          </li>
+              <i class="ri-num">{{ index + 1 }}</i>
+              <a
+                :href="'/video/av' + item.aid"
+                target="_blank"
+                :title="item.title"
+                class="ri-info-wrap clearfix"
+              >
+                <div class="lazy-img ri-preview" v-if="rankPic">
+                  <img :alt="item.title" v-lazy="item.pic" />
+                </div>
+                <div class="ri-detail">
+                  <p class="ri-title">{{ item.title }}</p>
+                  <p class="ri-point" v-if="rankPic">综合评分：{{ count2(item.pts) }}</p>
+                  <span class="ri-total" v-else>更新至第{{ item.newest_ep_index }}话</span>
+                </div>
+                <div class="watch-later-trigger w-later" v-if="rankPic && index === 0"></div>
+              </a>
+            </li>
+          </div>
         </ul>
       </div>
-
       <a :href="moreUrl" target="_blank" class="more-link">
         查看更多
         <i class="icon icon-arrow-r"></i>
       </a>
-
       <ad-slide
         v-if="tag == 1 && zoneRank.rid == 168"
         :slidedata="zoneRank.ad.data"
@@ -142,9 +127,7 @@ import { count, count2 } from "@/utils";
 import Dropdown from "@/components/Dropdown";
 import AdSlide from "@/components/AdSlide";
 export default {
-  mounted() {
-    // this.getData()
-  },
+  name: "ZoneRank",
   watch: {
     offsetTop: function() {
       this.getData();

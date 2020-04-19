@@ -21,11 +21,9 @@
                   :title="item.season.title"
                 >
                   <div class="modal-box">
-                    <div class="bangumi-tag vip" v-if="item.season.payment">
-                      会员专享
-                    </div>
+                    <div class="bangumi-tag vip" v-if="item.season.payment">会员专享</div>
                     <div class="lazy-img">
-                      <img alt="" v-lazy="item.cover" />
+                      <img alt v-lazy="item.cover" />
                     </div>
                   </div>
                 </a>
@@ -43,8 +41,7 @@
                     :title="item.season.title"
                     class="title"
                     v-html="item.title"
-                  >
-                  </a>
+                  ></a>
                 </div>
                 <div class="info-items">
                   <div class="top-info">
@@ -62,14 +59,10 @@
                     </div>
                     <div class="des cv">
                       声优：
-                      <span :title="item.cv" class="type-s">
-                        {{ item.cv }}
-                      </span>
+                      <span :title="item.cv" class="type-s">{{ item.cv }}</span>
                     </div>
                   </div>
-                  <div :title="item.desc" class="des info">
-                    简介：{{ item.desc }}
-                  </div>
+                  <div :title="item.desc" class="des info">简介：{{ item.desc }}</div>
                 </div>
                 <div class="nav">
                   <div class="main-container">
@@ -93,9 +86,7 @@
                                 <div
                                   :title="item.index + ' ' + item.index_title"
                                   class="ep-item"
-                                >
-                                  {{ item.index }}
-                                </div>
+                                >{{ item.index }}</div>
                               </a>
                             </li>
                           </ul>
@@ -109,19 +100,14 @@
                     {{ item.media_score.score }}
                     <span class="fen">分</span>
                   </div>
-                  <div class="user-count">
-                    {{ userCount(item.media_score.user_count) + "人点评" }}
-                  </div>
+                  <div class="user-count">{{ userCount(item.media_score.user_count) + "人点评" }}</div>
                 </div>
               </div>
             </div>
           </li>
           <li class="card-more">
             共找到{{ allResult.top_tlist.media_bangumi }}部相关番剧，
-            <router-link :to="{ path: '/search/bangumi' }" class=""
-              >点击查看</router-link
-            >
-            &gt;
+            <router-link :to="{ path: '/search/bangumi' }" class>点击查看</router-link>&gt;
           </li>
         </ul>
         <ul class="video-contain clearfix" v-if="allResult.result">
@@ -130,14 +116,12 @@
             v-for="(item, index) in allResult.result.video"
             :key="`allResult_result_video_${index}`"
           >
-            <a :href="'/video/av' + item.aid + '/'" target="_blank" title="">
+            <a :href="'/video/av' + item.aid + '/'" target="_blank" title>
               <div class="img">
                 <div class="lazy-img">
-                  <img alt="" v-lazy="item.pic" />
+                  <img alt v-lazy="item.pic" />
                 </div>
-                <span class="so-imgTag_rb">
-                  {{ item.duration }}
-                </span>
+                <span class="so-imgTag_rb">{{ item.duration }}</span>
                 <div class="watch-later-trigger watch-later"></div>
               </div>
             </a>
@@ -146,17 +130,14 @@
                 <span class="type avid">{{ "av" + item.aid }}</span>
                 <span class="type hide">综合</span>
                 <a
-                  title=""
+                  title
                   :href="'/video/av' + item.aid + '/'"
                   target="_blank"
                   class="title"
                   v-html="item.title"
-                >
-                </a>
+                ></a>
               </div>
-              <div class="des hide">
-                {{ item.description }}
-              </div>
+              <div class="des hide">{{ item.description }}</div>
               <div class="tags">
                 <span title="观看" class="so-icon watch-num">
                   <i class="icon-playtime"></i>
@@ -176,8 +157,7 @@
                     :href="'//space.bilibili.com/' + item.mid + '/'"
                     target="_blank"
                     class="up-name"
-                    >{{ item.author }}</a
-                  >
+                  >{{ item.author }}</a>
                 </span>
               </div>
             </div>
@@ -193,6 +173,7 @@ import { count2, timeChange } from "@/utils";
 import searchFilter from "./SearchFilter";
 
 export default {
+  name: "Search",
   props: {
     allResult: {
       type: [Object, Array],

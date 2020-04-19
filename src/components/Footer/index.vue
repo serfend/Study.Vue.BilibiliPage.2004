@@ -2,10 +2,7 @@
   <div class="app-footer">
     <div class="footer-cnt">
       <ul class="boston-postcards">
-        <li
-          v-for="(card, index) in postcards"
-          :key="`boston_postcards_${index}`"
-        >
+        <li v-for="(card, index) in postcards" :key="`boston_postcards_${index}`">
           <div class="tips">{{ card.tip }}</div>
           <div
             class="cards"
@@ -62,6 +59,7 @@
 
 <script>
 export default {
+  name: "Footer",
   data() {
     return {
       postcards: [

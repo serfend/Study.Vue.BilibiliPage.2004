@@ -7,8 +7,7 @@
 
 <script>
 export default {
-  props: {},
-  computed: {},
+  name: "Loading",
   data() {
     return {};
   },

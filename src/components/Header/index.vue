@@ -114,6 +114,7 @@ import NavMenu from "@/components/NavMenu";
 import { mapState, mapMutations, mapActions } from "vuex";
 
 export default {
+  name: "Header",
   created() {
     this.setHeadBanner({
       pf: 0,

@@ -1,11 +1,7 @@
 <template>
   <div class="slide" @mouseover="clearInv" @mouseout="runInv">
     <div class="slide-img" v-if="slidedata[nowIndex]">
-      <a
-        :href="slidedata[nowIndex].link"
-        target="_blank"
-        :title="slidedata[nowIndex].title"
-      >
+      <a :href="slidedata[nowIndex].link" target="_blank" :title="slidedata[nowIndex].title">
         <transition name="slide-trans">
           <img v-if="isShow" :src="slidedata[nowIndex].img" />
         </transition>
@@ -19,8 +15,7 @@
         :href="slidedata[nowIndex].link"
         target="_blank"
         :title="slidedata[nowIndex].title"
-        >{{ slidedata[nowIndex].title }}</a
-      >
+      >{{ slidedata[nowIndex].title }}</a>
     </div>
     <ul class="slide-page">
       <li
@@ -39,6 +34,7 @@
 
 <script>
 export default {
+  name: "AdSlide",
   props: {
     slidedata: {
       type: [Object, Array],

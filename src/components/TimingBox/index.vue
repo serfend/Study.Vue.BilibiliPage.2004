@@ -26,8 +26,7 @@
             target="_blank"
             :title="item.title"
             class="t"
-            >{{ item.title }}</a
-          >
+          >{{ item.title }}</a>
           <p class="update" :class="{ on: item.new }">
             <span>
               {{ item.bgmcount == -1 ? "尚未更新" : "更新至" }}
@@ -37,17 +36,14 @@
                 "
                 target="_blank"
                 v-if="item.bgmcount > 0"
-                >{{ item.bgmcount + "话" }}</a
-              >
+              >{{ item.bgmcount + "话" }}</a>
               <a
                 :href="
                   'htttps://www.bilibili.com/bangumi/play/ep' + item.ep_id + '/'
                 "
                 target="_blank"
                 v-else
-              >
-                {{ item.bgmcount }}
-              </a>
+              >{{ item.bgmcount }}</a>
             </span>
           </p>
         </div>
@@ -80,8 +76,7 @@
           target="_blank"
           :title="item.title"
           class="t"
-          >{{ item.title }}</a
-        >
+        >{{ item.title }}</a>
         <p class="update" :class="{ on: item.new }">
           <span>
             {{ item.bgmcount == -1 ? "尚未更新" : "更新至" }}
@@ -91,16 +86,14 @@
               "
               target="_blank"
               v-if="item.bgmcount > 0"
-              >{{ item.bgmcount + "话" }}</a
-            >
+            >{{ item.bgmcount + "话" }}</a>
             <a
               :href="
                 'htttps://www.bilibili.com/bangumi/play/ep' + item.ep_id + '/'
               "
               target="_blank"
               v-else
-              >{{ item.bgmcount }}</a
-            >
+            >{{ item.bgmcount }}</a>
           </span>
         </p>
       </div>
@@ -132,8 +125,7 @@
           target="_blank"
           :title="item.title"
           class="t"
-          >{{ item.title }}</a
-        >
+        >{{ item.title }}</a>
         <p class="update" :class="{ on: item.new }">
           <span>
             {{ item.bgmcount == -1 ? "尚未更新" : "更新至" }}
@@ -143,16 +135,14 @@
               "
               target="_blank"
               v-if="item.bgmcount > 0"
-              >{{ item.bgmcount + "话" }}</a
-            >
+            >{{ item.bgmcount + "话" }}</a>
             <a
               :href="
                 'htttps://www.bilibili.com/bangumi/play/ep' + item.ep_id + '/'
               "
               target="_blank"
               v-else
-              >{{ item.bgmcount }}</a
-            >
+            >{{ item.bgmcount }}</a>
           </span>
         </p>
       </div>
@@ -162,6 +152,7 @@
 
 <script>
 export default {
+  name: "TimingBox",
   props: {
     timelineData: {
       type: [Object, Array],

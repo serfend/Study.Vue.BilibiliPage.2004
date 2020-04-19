@@ -1,10 +1,6 @@
 <template>
   <div class="nav-menu">
-    <div
-      v-if="menuShow"
-      class="blur-bg"
-      :style="{ background: 'url(' + headBanner.pic + ')' }"
-    ></div>
+    <div v-if="menuShow" class="blur-bg" :style="{ background: 'url(' + headBanner.pic + ')' }"></div>
     <div class="nav-mask"></div>
     <div class="bili-wrapper">
       <div class="nav-con fl">
@@ -23,9 +19,7 @@
         </ul>
       </div>
       <div class="up-load fr">
-        <a href="" target="_blank" class="u-link">
-          投 稿
-        </a>
+        <a href target="_blank" class="u-link">投 稿</a>
       </div>
       <div class="nav-con fr">
         <ul>
@@ -59,53 +53,35 @@
               </div>
             </a>
             <transition name="nav-trans">
-              <div
-                class="profile-m dd-bubble"
-                v-if="signIn == 1"
-                v-show="profileShow"
-              >
+              <div class="profile-m dd-bubble" v-if="signIn == 1" v-show="profileShow">
                 <div class="header-u-info" v-if="proInfo">
                   <div class="header-uname">
-                    <b class="">{{ proInfo.uname }}</b>
+                    <b class>{{ proInfo.uname }}</b>
                   </div>
                   <div class="btns-profile clearfix">
                     <div class="coin fl">
-                      <a
-                        href="https://account.bilibili.com/site/coin"
-                        target="_blank"
-                        title="硬币"
-                      >
+                      <a href="https://account.bilibili.com/site/coin" target="_blank" title="硬币">
                         <i class="bili-icon bi"></i>
                         <i class="bili-icon jia"></i>
                         <span class="num">{{ Math.ceil(proInfo.money) }}</span>
                         <span class="num-move">{{ proInfo.money }}</span>
-                        <span title="" class="num-tip">登录奖励</span>
+                        <span title class="num-tip">登录奖励</span>
                       </a>
                     </div>
                     <div class="currency fl">
-                      <a
-                        href="https://pay.bilibili.com/bb_balance.html"
-                        target="_blank"
-                        title="B币"
-                      >
+                      <a href="https://pay.bilibili.com/bb_balance.html" target="_blank" title="B币">
                         <i class="bili-icon"></i>
                         <span class="num">0</span>
                       </a>
                     </div>
                     <div class="ver phone fr verified">
-                      <a
-                        href="https://passport.bilibili.com/site/site.html"
-                        target="_blank"
-                      >
+                      <a href="https://passport.bilibili.com/site/site.html" target="_blank">
                         <i class="bili-icon"></i>
                         <span class="tips">已绑定</span>
                       </a>
                     </div>
                     <div class="ver email fr verified">
-                      <a
-                        href="https://passport.bilibili.com/site/site.html"
-                        target="_blank"
-                      >
+                      <a href="https://passport.bilibili.com/site/site.html" target="_blank">
                         <i class="bili-icon"></i>
                         <span class="tips">已绑定</span>
                       </a>
@@ -114,16 +90,10 @@
                   </div>
                   <div class="grade clearfix">
                     <span class="hd fl">等级</span>
-                    <a
-                      href="https://account.bilibili.com/site/record.html"
-                      target="_blank"
-                    >
+                    <a href="https://account.bilibili.com/site/record.html" target="_blank">
                       <div class="bar fr">
                         <div class="lt" :class="level"></div>
-                        <div
-                          class="rate"
-                          :style="{ width: proInfo.moral + '%' }"
-                        ></div>
+                        <div class="rate" :style="{ width: proInfo.moral + '%' }"></div>
                         <div class="num">
                           <div v-if="proInfo.level_info">
                             {{ proInfo.level_info.current_exp }}
@@ -135,16 +105,15 @@
                     <div class="desc-tips">
                       <span class="arrow-left"></span>
                       <div class="lv-row">
-                        作为<strong>LV4</strong>，你可以：
+                        作为
+                        <strong>LV4</strong>，你可以：
                       </div>
                       <div>
-                        1、发射个性弹幕（彩色、高级、顶部、底部）<br />
-                        2、参与视频互动（评论、添加tag）<br />
-                        3、投稿成为偶像
+                        1、发射个性弹幕（彩色、高级、顶部、底部）
+                        <br />2、参与视频互动（评论、添加tag）
+                        <br />3、投稿成为偶像
                       </div>
-                      <a href="#" target="_blank" class="help-link"
-                        >会员等级相关说明 &gt;</a
-                      >
+                      <a href="#" target="_blank" class="help-link">会员等级相关说明 &gt;</a>
                     </div>
                   </div>
                 </div>
@@ -161,11 +130,7 @@
                       </a>
                     </li>
                     <li>
-                      <a
-                        href="https://member.bilibili.com/v2#/home"
-                        target="_blank"
-                        class="member"
-                      >
+                      <a href="https://member.bilibili.com/v2#/home" target="_blank" class="member">
                         <i class="bili-icon b-icon-p-member"></i>
                         投稿管理
                       </a>
@@ -191,11 +156,7 @@
                       </a>
                     </li>
                     <li>
-                      <a
-                        href="https://show.bilibili.com/orderlist"
-                        target="_blank"
-                        class="bml"
-                      >
+                      <a href="https://show.bilibili.com/orderlist" target="_blank" class="bml">
                         <i class="bili-icon b-icon-p-ticket"></i>
                         订单中心
                       </a>
@@ -209,9 +170,7 @@
               </div>
             </transition>
             <div class="i_menu i_menu_login" v-if="signIn == 0">
-              <p class="tip">
-                登录后你可以：
-              </p>
+              <p class="tip">登录后你可以：</p>
               <div class="img">
                 <img src="../../assets/danmu.png" />
                 <img src="../../assets/danmu.png" />
@@ -222,33 +181,31 @@
                   setLoginShow();
                   setLoginTab(0);
                 "
-                >登录</a
-              >
+              >登录</a>
               <p class="reg">
-                首次使用？<a
+                首次使用？
+                <a
                   @click="
                     setLoginShow();
                     setLoginTab(1);
                   "
-                  >点我去注册</a
-                >
+                >点我去注册</a>
               </p>
             </div>
           </li>
           <template v-if="signIn == 1">
             <li class="nav-item" @mouseover="vipFadeIn" @mouseout="vipFadeOut">
-              <a href="#" target="_blank" class="t">
-                大会员
-              </a>
+              <a href="#" target="_blank" class="t">大会员</a>
               <transition name="nav-trans">
                 <div class="app-header vip-m dd-bubble" v-show="vipShow">
                   <div class="bubble-traditional">
                     <div class="recommand">
                       <div class="title">
                         精彩推荐
-                        <a href="#" target="_blank" class="more"
-                          >更多<i class="b-icon b-icon-arrow-r"></i
-                        ></a>
+                        <a href="#" target="_blank" class="more">
+                          更多
+                          <i class="b-icon b-icon-arrow-r"></i>
+                        </a>
                       </div>
                       <div class="bubble-col bubble-col-1 bubble-col-3">
                         <div
@@ -260,18 +217,14 @@
                         >
                           <a target="_blank" :href="item.linkUrl" class="pic">
                             <div class="lazy-img">
-                              <img
-                                :alt="item.content"
-                                v-lazy="item.image1Url"
-                              />
+                              <img :alt="item.content" v-lazy="item.image1Url" />
                             </div>
                           </a>
                           <a
                             target="_blank"
                             :href="item.linkUrl"
                             class="recommand-link"
-                            >{{ item.content }}</a
-                          >
+                          >{{ item.content }}</a>
                         </div>
                       </div>
                     </div>
@@ -279,88 +232,47 @@
                 </div>
               </transition>
             </li>
-            <li
-              class="nav-item"
-              @mouseover="messageFadeIn"
-              @mouseout="messageFadeOut"
-            >
+            <li class="nav-item" @mouseover="messageFadeIn" @mouseout="messageFadeOut">
               <a href="#" target="_blank" title="消息" class="t">
-                <div class="num">
-                  1
-                </div>
-                消息
+                <div class="num">1</div>消息
               </a>
               <transition name="nav-trans">
                 <div class="im-list-box" v-show="messageShow">
                   <a class="im-list" target="_blank" href="#">
                     回复我的
-                    <div
-                      class="im-notify im-number im-center"
-                      style="display: none"
-                    >
-                      0
-                    </div>
+                    <div class="im-notify im-number im-center" style="display: none">0</div>
                   </a>
                   <a class="im-list" target="_blank" href="#">
                     @我的
-                    <div
-                      class="im-notify im-number im-center"
-                      style="display: none"
-                    >
-                      0
-                    </div>
+                    <div class="im-notify im-number im-center" style="display: none">0</div>
                   </a>
                   <a class="im-list" target="_blank" href="#">
                     收到的赞
-                    <div
-                      class="im-notify im-number im-center"
-                      style="display: none"
-                    >
-                      0
-                    </div>
+                    <div class="im-notify im-number im-center" style="display: none">0</div>
                   </a>
                   <a class="im-list" target="_blank" href="#">
                     系统通知
-                    <div class="im-notify im-number im-center" style="">
-                      1
-                    </div>
+                    <div class="im-notify im-number im-center" style>1</div>
                   </a>
                   <a class="im-list" target="_blank" href="#">
                     我的消息
-                    <div
-                      class="im-notify im-number im-center"
-                      style="display: none"
-                    >
-                      0
-                    </div>
+                    <div class="im-notify im-number im-center" style="display: none">0</div>
                   </a>
                 </div>
               </transition>
             </li>
             <li class="nav-item">
-              <a href="#" target="_blank" class="t">
-                动态
-              </a>
+              <a href="#" target="_blank" class="t">动态</a>
             </li>
             <li class="nav-item">
-              <a href="#" target="_blank" class="t">
-                稍后再看
-              </a>
+              <a href="#" target="_blank" class="t">稍后再看</a>
             </li>
             <li class="nav-item">
-              <a href="#" target="_blank" class="t">
-                收藏夹
-              </a>
+              <a href="#" target="_blank" class="t">收藏夹</a>
             </li>
           </template>
           <li class="nav-item">
-            <a
-              href="//www.bilibili.com/account/history"
-              target="_blank"
-              class="t"
-            >
-              历史
-            </a>
+            <a href="//www.bilibili.com/account/history" target="_blank" class="t">历史</a>
           </li>
         </ul>
       </div>
@@ -373,6 +285,7 @@ import { createNamespacedHelpers } from "vuex";
 const { mapState, mapMutations, mapActions } = createNamespacedHelpers("login");
 
 export default {
+  name: "NavMenu",
   props: {
     leftNav: {
       default: []

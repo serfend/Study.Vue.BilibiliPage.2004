@@ -2,11 +2,7 @@
   <div class="app-body bili-wrapper">
     <div id="chief_recommend" class="chief-recommend-module">
       <!-- 轮播图数据、时间、翻页 -->
-      <slide
-        :slidedata="slide.data"
-        :slidetimedata="slide.time"
-        :pagation="slide.pagation"
-      ></slide>
+      <slide :slidedata="slide.data" :slidetimedata="slide.time" :pagation="slide.pagation"></slide>
       <!-- 推荐模块 昨日 三日 一周  -->
       <keep-alive>
         <recommend :recommend="recommend"></recommend>
@@ -75,7 +71,7 @@
             <div class="v-data">
                 <span class="play"><i class="icon"></i>{{ count2(videoinforitem[videodata.mouseindex].play) }}</span><span class="danmu"><i class="icon"></i>{{ count2(videoinforitem[videodata.mouseindex].video_review) }}</span><span class="star"><i class="icon"></i>{{ count2(videoinforitem[videodata.mouseindex].favorites) }}</span><span class="coin"><i class="icon"></i>{{ count2(videoinforitem[videodata.mouseindex].coins) }}</span>
             </div>
-        </div> -->
+    </div>-->
   </div>
 </template>
 
@@ -90,6 +86,7 @@ import Guochuang from "./Guochuang";
 import { mapGetters, mapMutations, mapActions } from "vuex";
 
 export default {
+  name: "Home",
   created() {
     this.setData();
   },
@@ -399,10 +396,10 @@ export default {
   padding-top: 0;
 }
 .icon-music {
-    background-position: -140px -266px;
+  background-position: -140px -266px;
 }
 .icon-dance {
-    background-position: -141px -461px;
+  background-position: -141px -461px;
 }
 .card-timing-module {
   .pic {

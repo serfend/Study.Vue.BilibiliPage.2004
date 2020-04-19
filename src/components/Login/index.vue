@@ -13,8 +13,7 @@
           :class="{ active: index == nowindex }"
           href="#"
           @click="setLoginTab(index)"
-          >{{ item.name }}</a
-        >
+        >{{ item.name }}</a>
       </div>
       <div class="login-user" v-if="nowindex == 0">
         <div class="login-content">
@@ -22,7 +21,7 @@
             <input
               v-model="user"
               type="text"
-              value=""
+              value
               placeholder="你的手机号/邮箱"
               maxlength="50"
               autocomplete="off"
@@ -43,19 +42,13 @@
         </div>
         <div class="login-forget">
           <div class="lf-password">
-            <input type="checkbox" name="name" id="radioa" checked="" />
+            <input type="checkbox" name="name" id="radioa" checked />
             <label for="radioa"></label>
             <span>记住密码</span>
           </div>
           <a href="javascript:;" class="lff-password">忘记密码？</a>
         </div>
-        <div
-          class="login-btn"
-          :class="{ on: user !== '' && password !== '' }"
-          @click="onLogin()"
-        >
-          登录
-        </div>
+        <div class="login-btn" :class="{ on: user !== '' && password !== '' }" @click="onLogin()">登录</div>
         <div class="btn-error">{{ btnErrorText }}</div>
       </div>
       <div class="register-user" v-else>
@@ -64,7 +57,7 @@
             <input
               v-model="user"
               type="text"
-              value=""
+              value
               placeholder="昵称（例：哔哩哔哩）"
               maxlength="50"
               autocomplete="off"
@@ -84,13 +77,9 @@
           class="register-btn"
           :class="{ on: reguser !== '' && regpassword !== '' }"
           @click="onLogin()"
-        >
-          立即注册
-        </div>
+        >立即注册</div>
         <div class="register-login">
-          <a href="javascript:;" @click="setLoginTab(0)"
-            >已有账号，直接登录>></a
-          >
+          <a href="javascript:;" @click="setLoginTab(0)">已有账号，直接登录>></a>
         </div>
       </div>
     </div>
@@ -102,6 +91,7 @@ import { createNamespacedHelpers } from "vuex";
 const { mapState, mapMutations, mapActions } = createNamespacedHelpers("login");
 
 export default {
+  name: "Login",
   data() {
     return {
       tab: [
